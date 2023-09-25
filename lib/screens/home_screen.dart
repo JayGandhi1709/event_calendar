@@ -1,9 +1,10 @@
 import 'dart:convert';
 
-import 'package:event_calendar/utils/show_snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
+
+import 'package:event_calendar/utils/show_snack_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -30,38 +31,11 @@ class _HomeScreenState extends State<HomeScreen> {
     loadEvents();
   }
 
-  loadEvents() {
-    mySelectedEvents = {
-      "2023-09-25": [
-        {
-          "title": "Title 1",
-          "note": "Note 1",
-          "category": "Work",
-        },
-        {
-          "title": "Title 2",
-          "note": "Note 2",
-          "category": "Personal",
-        }
-      ],
-      "2023-09-26": [
-        {
-          "title": "Title 1",
-          "note": "Note 1",
-          "category": "Work",
-        },
-        {
-          "title": "Title 2",
-          "note": "Note 2",
-          "category": "Personal",
-        }
-      ]
-    };
-  }
+  loadEvents() {}
 
   List _listOfDayEvents(DateTime dateTime) {
     if (mySelectedEvents[DateFormat('yyyy-MM-dd').format(dateTime)] != null) {
-      return mySelectedEvents[DateFormat('yyyy-MM-dd').format(dateTime!)]!;
+      return mySelectedEvents[DateFormat('yyyy-MM-dd').format(dateTime)]!;
     } else {
       return [];
     }
@@ -77,6 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
               title: const Text('Add New Event'),
               centerTitle: false,
               automaticallyImplyLeading: false,
+              elevation: 1,
               leading: IconButton(
                 onPressed: () => Navigator.of(context).pop(),
                 icon: const Icon(Icons.close),
